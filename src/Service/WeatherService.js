@@ -24,6 +24,7 @@ export const formatDate = (date) => {
   }`;
 };
 
+// *** dummy data test just in case, to be deleted
 export const dummyData = {
   coord: {
     lon: -0.1257,

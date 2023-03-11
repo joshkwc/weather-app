@@ -8,10 +8,11 @@ import { getWeather, formatDate, dummyData } from "./Service/WeatherService";
 
 import "./App.css";
 
-// Images
+// Images & Icons
 import bgLight from "./Resources/Images/bg-light.png";
-import cloud from "./Resources/Images/cloud.png";
 import sun from "./Resources/Images/sun.png";
+import searchIcon from './Resources/Icons/Search.svg';
+import deleteIcon from './Resources/Icons/Delete.svg';
 
 const useStyles = makeStyles({
   root: {
@@ -166,38 +167,49 @@ const App = (_) => {
 
   const handleSearchValChange = (e) => setSearchVal(e.target.value);
 
-  const searchLocation = async (_) => {
-    const insertIntoData = (data) => {
-      const currentDate = new Date();
-      const weatherArr = [...weatherData];
-      weatherArr.unshift({
-        ...data,
-        searchDate: `${formatDate(currentDate)}`,
-      });
-      setWeatherData([...weatherArr]);
-    };
-    // const resultWeather = await getWeather(searchVal);
-    // console.log("Weather fetched", resultWeather);
-    // switch (resultWeather.cod) {
-    //   case "404":
-    //     break;
-    //   case 429:
-    //     insertIntoData(dummyData);
-    //     break;
-    //   default:
-    //     insertIntoData(resultWeather);
-    //     break;
-    // }
+  const insertIntoData = (data) => {
+    const currentDate = new Date();
+    const weatherArr = [...weatherData];
+    weatherArr.unshift({
+      ...data,
+      searchDate: `${formatDate(currentDate)}`,
+    });
+    setWeatherData([...weatherArr]);
+  };
 
-    // *** dummy data first
+  // *** Don't delete, original code to fetch api
+  const fetchWeather = async (searchVal) => {
+    // *** Don't delete,original code to fetch api
+    const resultWeather = await getWeather(searchVal);
+    console.log("Weather fetched", resultWeather);
+    switch (resultWeather.cod) {
+      case "404":
+      case 404:
+        break;
+      case "429":
+      case 429:
+        insertIntoData(dummyData);
+        break;
+      default:
+        insertIntoData(resultWeather);
+        break;
+    }
+  };
+
+  const searchLocation = async (_) => {
+    // *** Don't delete, original code to fetch api
+    // fetchWeather(searchVal);
+
+    // *** dummy data test just in case, to be deleted
     insertIntoData(dummyData);
   };
 
   const buttonCircle = {
     width: "34px",
-    height: "34px",
+    height: "63px",
     borderRadius: "70%",
     boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+    transform: "scale(0.75)",
   };
 
   return (
@@ -242,7 +254,7 @@ const App = (_) => {
                 {weatherData[0].main.temp_min}&deg;
               </div>
               <div className={classes.weatherInfoDesktop}>
-                <Grid container spacing={1} column={10}>
+                <Grid container spacing={2} column={10}>
                   <Grid item md={5} lg={5}>
                     {weatherData[0].name}, {weatherData[0].sys.country} {"  "}
                     {weatherData[0].searchDate} {"  "}
@@ -254,7 +266,7 @@ const App = (_) => {
                 </Grid>
               </div>
               <div className={classes.weatherInfoMobile}>
-                <Grid container spacing={1} column={10}>
+                <Grid container spacing={2} column={10}>
                   <Grid item xs={5} s={5}>
                     {weatherData[0].name}, {weatherData[0].sys.country}
                   </Grid>
@@ -272,23 +284,28 @@ const App = (_) => {
                     <div key={wIndex} className={classes.searchedCountry}>
                       <div className={classes.divFloatLeft}>
                         {weather.name},{weather.sys.country}
-                        {wIndex}
-                        <div className={classes.weatherInfoMobile}>{weather.searchDate}</div>
+                        <div className={classes.weatherInfoMobile}>
+                          {weather.searchDate}
+                        </div>
                       </div>
                       <div className={classes.divFloatRight}>
-                        <span className={classes.weatherInfoDesktop}>{weather.searchDate}</span>
+                        <span className={classes.weatherInfoDesktop}>
+                          {weather.searchDate}
+                        </span>
                         <Button
                           variant="contained"
-                          color="primary"
-                          // onClick={searchLocation(weather.name)}
+                          onClick={(_) => {
+                            // fetchWeather(weather.name);
+                            // *** dummy data test just in case, to be deleted
+                            insertIntoData(dummyData);
+                          }}
                           // className={`${classes.searchBtn} ${classes.displayColor}`}
                           style={buttonCircle}
                         >
-                          <Search />
+                          <img src={searchIcon} alt="delete icon" />
                         </Button>
                         <Button
                           variant="contained"
-                          color="primary"
                           onClick={(_) => {
                             weatherData.splice(wIndex, 1);
                             setWeatherData([...weatherData]);
@@ -296,7 +313,7 @@ const App = (_) => {
                           // className={`${classes.searchBtn} ${classes.displayColor}`}
                           style={buttonCircle}
                         >
-                          Delete
+                          <img src={deleteIcon} alt="delete icon" />
                         </Button>
                       </div>
                     </div>
@@ -305,7 +322,10 @@ const App = (_) => {
               </div>
             </>
           ) : (
-            <></>
+            <div className={classes.searchHistory}>
+              Search History
+              <div className={classes.searchedCountry}>No record</div>
+            </div>
           )}
         </div>
       </div>
