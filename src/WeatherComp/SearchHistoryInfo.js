@@ -107,10 +107,20 @@ const SearchedCountryCard = (
         justifyContent="flex-start"
         alignItems="center"
       >
+        {/* Left side of the searched country info
+            - include:
+              * location
+              * date (mobile version)      
+        */}
         <Grid item xs={6} s={6} md={6} lg={6}>
           {weather.name},{weather.sys.country}
           <div className={classes.weatherInfoMobile}>{weather.searchDate}</div>
         </Grid>
+        {/* Right side of the searched country info
+            - include:
+              * date (desktop version)
+              * Button to search the location again and delete this search record   
+        */}
         <Grid item xs={6} s={6} md={6} lg={6}>
           <div style={{ ...flexRow, alignItems: "center" }}>
             <div className={classes.weatherInfoDesktop}>
