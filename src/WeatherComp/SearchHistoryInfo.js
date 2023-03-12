@@ -24,15 +24,6 @@ const useStyles = makeStyles({
       marginRight: 13,
     },
   },
-  generalColor: {
-    background: "rgba(255, 255, 255, 0.2)",
-  },
-  displayColor: {
-    background: "#6C40B5",
-  },
-  displayColorText: {
-    color: "#6C40B5",
-  },
   weatherInfoDesktop: {
     "@media(max-width: 768px)": {
       visibility: "hidden",

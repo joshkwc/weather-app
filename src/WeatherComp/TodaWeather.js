@@ -13,24 +13,6 @@ const useStyles = makeStyles({
     position: "relative",
     padding: 80,
   },
-  generalColor: {
-    background: "rgba(255, 255, 255, 0.2)",
-  },
-  displayColor: {
-    background: "#6C40B5",
-  },
-  displayColorText: {
-    color: "#6C40B5",
-  },
-  tempText: {
-    fontWeight: "bold",
-    "@media(min-width: 769px)": {
-      fontSize: 80,
-    },
-    "@media(max-width: 768px)": {
-      fontSize: 40,
-    },
-  },
   // *** overlapping
   weatherImageDiv: {
     position: "relative",
@@ -70,17 +52,6 @@ const useStyles = makeStyles({
     "@media(max-width: 768px)": {
       width: 157,
       height: 157,
-    },
-  },
-  weatherInfoDesktop: {
-    "@media(max-width: 768px)": {
-      visibility: "hidden",
-    },
-  },
-  weatherInfoMobile: {
-    verticalAlign: "bottom",
-    "@media(min-width: 769px)": {
-      visibility: "hidden",
     },
   },
 });

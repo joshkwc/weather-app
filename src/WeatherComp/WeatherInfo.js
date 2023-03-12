@@ -5,37 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { SearchHistory } from "./SearchHistoryInfo";
 
 const useStyles = makeStyles({
-  todayWeather: {
-    background: "rgba(255, 255, 255, 0.2)",
-    backdropFilter: "blur(10px)",
-    borderRadius: "40px",
-    textAlign: "left",
-    position: "relative",
-    padding: 80,
-  },
-  searchHistory: {
-    background: "rgba(255, 255, 255, 0.2)",
-    borderRadius: "24px",
-    padding: 18,
-  },
-  searchedCountry: {
-    background: "rgba(255, 255, 255, 0.4)",
-    borderRadius: "16px",
-    marginBottom: 18,
-    padding: 10,
-    "@media(min-width: 769px)": {
-      marginRight: 20,
-    },
-    "@media(max-width: 768px)": {
-      marginRight: 13,
-    },
-  },
-  generalColor: {
-    background: "rgba(255, 255, 255, 0.2)",
-  },
-  displayColor: {
-    background: "#6C40B5",
-  },
   displayColorText: {
     color: "#6C40B5",
   },
@@ -46,47 +15,6 @@ const useStyles = makeStyles({
     },
     "@media(max-width: 768px)": {
       fontSize: 40,
-    },
-  },
-  // *** overlapping
-  weatherImageDiv: {
-    position: "relative",
-    bottom: 0,
-    "@media(min-width: 769px)": {
-      marginTop: -158,
-    },
-    "@media(max-width: 768px)": {
-      marginTop: -130,
-    },
-    "@media(min-width: 1280px)": {
-      left: "60vw",
-    },
-    "@media(min-width: 1024px) and (max-width: 1279px)": {
-      left: "40vw",
-    },
-    "@media(min-width: 849px) and (max-width: 1023px)": {
-      left: "30vw",
-    },
-    "@media(min-width: 769px) and (max-width: 848px)": {
-      left: "22vw",
-    },
-    "@media(min-width: 480px) and (max-width: 768px)": {
-      left: "55vw",
-    },
-    "@media(max-width: 479px)": {
-      left: "25vw",
-    },
-  },
-  weatherImage: {
-    position: "relative",
-    bottom: 0,
-    "@media(min-width: 769px)": {
-      width: 281.67,
-      height: 251.11,
-    },
-    "@media(max-width: 768px)": {
-      width: 157,
-      height: 157,
     },
   },
   weatherInfoDesktop: {

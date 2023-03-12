@@ -89,9 +89,7 @@ const App = (_) => {
     setWeatherData([...weatherArr]);
   };
 
-  // *** Don't delete, original code to fetch api
   const fetchWeather = async (searchVal) => {
-    // *** Don't delete,original code to fetch api
     const resultWeather = await getWeather(searchVal);
     console.log("Weather fetched", resultWeather);
     switch (resultWeather.cod) {
@@ -116,7 +114,6 @@ const App = (_) => {
           <TextField
             id="outlined-basic"
             label="Country"
-            // variant="outlined"
             className={`${classes.searchField} ${classes.generalColor}`}
             value={searchVal}
             onChange={(e) => handleSearchValChange(e)}
