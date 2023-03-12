@@ -17,6 +17,7 @@ const useStyles = makeStyles({
   weatherImageDiv: {
     position: "relative",
     bottom: 0,
+    width: '20%',
     "@media(min-width: 769px)": {
       marginTop: -158,
     },
