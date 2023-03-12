@@ -56,6 +56,9 @@ const useStyles = makeStyles({
   generalColor: {
     background: "rgba(255, 255, 255, 0.2)",
   },
+  displayColorText: {
+    color: "#6C40B5",
+  },
   searchBtn: {
     borderRadius: "20px",
     "@media(min-width: 769px)": {
@@ -119,7 +122,6 @@ const App = (_) => {
             onChange={(e) => handleSearchValChange(e)}
             InputProps={{
               disableUnderline: true,
-              className: classes.generalColor,
             }}
           />
           <Button

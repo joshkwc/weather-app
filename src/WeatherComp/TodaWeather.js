@@ -12,12 +12,13 @@ const useStyles = makeStyles({
     textAlign: "left",
     position: "relative",
     padding: 80,
+    border: "1px solid rgba(255, 255, 255, 0.5)",
   },
   // *** overlapping
   weatherImageDiv: {
     position: "relative",
     bottom: 0,
-    width: '20%',
+    width: "20%",
     "@media(min-width: 769px)": {
       marginTop: -158,
     },
